@@ -6,9 +6,12 @@ def offert(program_file):
     with open(program_file, "r") as file:
         HTMLFile = file.read()
         soup = BeautifulSoup(HTMLFile, 'html.parser')
+        # wyszykiwanie danych po komentarzach, bo tylko tak można wyznaczyć dane w tym plik HTML
+        # plik nie zawira 'id' ani 'class'
+        # cały plik podzielony jest na sekcje za pomocą komentarzy
         comments = soup.findAll(string = lambda text: isinstance(text, Comment))
         for comment in comments:
-            if comment == 'Programm-Nummer und Bemerkung':      #wyszykiwanie danych po komentarzach, bo tylko tak można wyznaczyć dane w tym plik HTML
+            if comment == 'Programm-Nummer und Bemerkung':      
                 table_rows = comment.find_next_sibling('tr')
                 b_prog = table_rows.find('b')
                 print("Nazwa programu:",b_prog.text)
@@ -17,6 +20,8 @@ def offert(program_file):
                 table_rows = comment.find_next_sibling('tr')
                 b_mat = table_rows.find('b')
                 print("Materiał:",b_mat.text.strip()[:9])
+
+                
 
    
 
