@@ -22,11 +22,29 @@ def offert(program_file):
                 b_mat = table_rows.find('b')
                 print("Materiał:",b_mat.text.strip()[:9])
 
+            if comment == 'Maschinenzeit/Tafel':
+                table_rows = comment.find_next_sibling('tr')
+                b_time = table_rows.find('nobr')
+                print("Czas maszynowy:",b_time.text.strip())
+
+            if comment == 'Anzahl Programmdurchlauefe':
+                table_rows = comment.find_next('tr')
+                tr = table_rows.findAll('td')
+                for td in tr:
+                   if td.text.strip().isdigit():
+                        print("Ilość powtórzeń programu:",td.text.strip())
+                             
+
+
+
             
 path_name = os.getcwd()+'\\programy\\'
 path = os.path.abspath(path_name)
 #print('Sciezka do katalogu:',path)
 program_file = path+"\\ativm2310a10B.HTML"
 #print('Sciezka do pliku:',program_file)
+<<<<<<< HEAD
+=======
 #print('Sciezka do pliku:',program_file)
+>>>>>>> 4f34f24e032fdb7967a14fbb05015401e1e31af8
 offert(program_file)
