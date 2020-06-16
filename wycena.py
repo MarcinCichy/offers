@@ -1,3 +1,4 @@
+import os
 import requests as r
 from bs4 import BeautifulSoup, Comment
 
@@ -21,9 +22,11 @@ def offert(program_file):
                 b_mat = table_rows.find('b')
                 print("Materiał:",b_mat.text.strip()[:9])
 
-                
-
-   
-
-program_file = "E:\\Programowanie\\Project\\Wycena\\programy\\ativm2310a10B.HTML"
+            
+path_name = os.getcwd()+'\\programy\\'
+path = os.path.abspath(path_name)
+print('Sciezka do katalogu:',path)
+program_file = path+"\\ativm2310a10B.HTML"
+print('Sciezka do pliku:',program_file)
+print('Sciezka do pliku:',program_file)
 offert(program_file)
