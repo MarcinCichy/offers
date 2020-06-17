@@ -34,9 +34,26 @@ def offert(program_file):
                    if td.text.strip().isdigit():
                         print("Ilość powtórzeń programu:",td.text.strip())
                              
-
-
-
+            if comment == 'HTML-Block: Einzelteil-Informationen mit Grafiken, ohne Barcode ':
+                table_rows = comment.find_next('table')
+                #print("Tabela:",table_rows.text)
+                print("="*100)
+                for row in table_rows:
+                    # print(len(row))
+                    # print(row)
+                    #print(tabr)
+                    # tr = tabr.find('td')
+                    # details=[]
+                    for td in row:
+                        print(td)
+                        # td = str(td).strip()
+                        if td == 'CZAS OBRÓBKI: ':
+                            print(td)
+                            
+                            # data = td.find('td')
+                            # details.append(data)
+                            # print(details)
+                print("="*100)
             
 path_name = os.getcwd()+'\\programy\\'
 path = os.path.abspath(path_name)
