@@ -35,26 +35,24 @@ def offert(program_file):
                         print("Ilość powtórzeń programu:",td.text.strip())
                              
             if comment == 'HTML-Block: Einzelteil-Informationen mit Grafiken, ohne Barcode ':
-                table_rows = comment.find_next('table')
+                table = comment.find_next_sibling('table')
+                print(table.text.strip())
+                      
                 #print("Tabela:",table_rows.text)
-                print("="*100)
-                for row in table_rows:
-                    # print(len(row))
-                    # print(row)
-                    #print(tabr)
-                    # tr = tabr.find('td')
-                    # details=[]
-                    for td in row:
-                        print(td)
+                # print("="*100)
+                # for tr in table_rows:
+                #     for td in tr:
+                #         data = [i for i in td]
+                #         print(data)
                         # td = str(td).strip()
-                        if td == 'CZAS OBRÓBKI: ':
-                            print(td)
+                        # if td == tr.find_all('CZAS OBRÓBKI:'):
+                        #     print(row)
                             
                             # data = td.find('td')
                             # details.append(data)
                             # print(details)
                 print("="*100)
-            
+               
 path_name = os.getcwd()+'\\programy\\'
 path = os.path.abspath(path_name)
 program_file = path+"\\ativm2310a10B.HTML"
