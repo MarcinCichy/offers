@@ -40,11 +40,5 @@ def offert(program_file):
             
 path_name = os.getcwd()+'\\programy\\'
 path = os.path.abspath(path_name)
-#print('Sciezka do katalogu:',path)
 program_file = path+"\\ativm2310a10B.HTML"
-#print('Sciezka do pliku:',program_file)
-<<<<<<< HEAD
-=======
-#print('Sciezka do pliku:',program_file)
->>>>>>> 4f34f24e032fdb7967a14fbb05015401e1e31af8
 offert(program_file)
