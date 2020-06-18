@@ -35,15 +35,29 @@ def offert(program_file):
                         print("Ilość powtórzeń programu:",td.text.strip())
                              
             if comment == 'HTML-Block: Einzelteil-Informationen mit Grafiken, ohne Barcode ':
-                table_rows = comment.find_next('table')
-                #print("Tabela:",table_rows.text)
-                tr = table_rows.findAll('td')
-                print(type(tr))
+                table = comment.find_next('table')
+                rows = table.findAll('tr')
                 print("="*100)
-                for td in tr:                  
-                    print(td.text.strip())  
+
+                #nr_czesci = rows[1].text.strip()
+                #wymiary = rows[6].text.strip()
+                #print(nr_czesci)
+                #print(wymiary)
+                #print(rows[3].text.strip())
+                row = rows[1]
+                # print(row.getText())
+                cell = row.findChildren('td')
+                detail_number = cell[2].getText()
+                 
+                # for row in rows: 
+                #     cells = row.findChildren('td')
+                    
+                #     for cell in cells:
+                #          print(cell.getText())
+                        
+                print("="*100) 
                    
-                print("="*100)
+                
             
 path_name = os.getcwd()+'\\programy\\'
 path = os.path.abspath(path_name)
