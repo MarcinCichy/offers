@@ -44,11 +44,19 @@ def offert(program_file):
                 #print(nr_czesci)
                 #print(wymiary)
                 #print(rows[3].text.strip())
+                #---------------------------------------
+                # odczyt całej jednej tabeli -> jeden detal
+                for i in range(1,21):
+                    row = rows[i]
+                    print(row.getText())
+                #---------------------------------------
+                # odczyt z jednej komórki
                 row = rows[1]
                 # print(row.getText())
                 cell = row.findChildren('td')
                 detail_number = cell[2].getText()
-                 
+                print(detail_number) 
+                #---------------------------------------
                 # for row in rows: 
                 #     cells = row.findChildren('td')
                     
