@@ -39,30 +39,31 @@ def offert(program_file):
                 rows = table.findAll('tr')          # przypisuje do zmiennej rows wszystkie znalezione <tr> w tabeli
                 print("="*180)
                 details_table_lenght = len(rows)
-                print(details_table_lenght)
+                # print(details_table_lenght)
+                # start_cell = rows[1].findChildren('td')[1].getText().strip()
+                # index = rows.index(rows[1])
+                # print('komórka startowa:',start_cell)
+                # print(index)
+
+
                 i=1
-                while i < 3:
-                    dict1={}
-                    for i in range(1,16):
-                        row = rows[i]
-                        cell_0 = row.findChildren('td')[0].getText().strip()
-                        cell_1 = row.findChildren('td')[1].getText().strip()
-                        dict1[cell_0]=cell_1
-                        #print(cell_0,cell_1)
-                        i += 1
-                    #print (dict1['NUMER RYSUNKU:'])
-                    print (dict1)
+                while i < details_table_lenght:
+                    # print(i)
+                    start_cell = rows[i].findChildren('td')[1].getText().strip()
+                    
+                    if start_cell == 'NUMER CZĘŚCI:':
+                        index_of_start_cell = rows.index(rows[i])
+                        print('komórka startowa:',start_cell)
+                        print('INDEX:',index_of_start_cell)
+                        dict1={}
+                        for j in range(index_of_start_cell,index_of_start_cell+15):
+                            row = rows[j]
+                            cell_0 = row.findChildren('td')[0].getText().strip()
+                            cell_1 = row.findChildren('td')[1].getText().strip()
+                            dict1[cell_0]=cell_1
+                    i += 1
+                print (dict1)
 
-                    #print(rows[i].text.strip()) 
-                    # row = rows[i]                        # przypisanie do zmiennej row wiersz nr 7
-                    # cell = row.findChildren('td')
-                    # detail_number = cell[1].getText()    # druga komórka z dwóch w wierszu o numerze 7
-                    # print(detail_number) 
-                   
-
-                # dict1={}
-                # print (rows[6].getText().strip())
-                # dict1[]
 
 
                 #print(rows)                         # wypisuje wszystkie wiersze <tr> bez formatowania
