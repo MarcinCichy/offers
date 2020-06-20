@@ -35,27 +35,75 @@ def offert(program_file):
                         print("Ilość powtórzeń programu:",td.text.strip())
                              
             if comment == 'HTML-Block: Einzelteil-Informationen mit Grafiken, ohne Barcode ':
-                table = comment.find_next('table')
-                rows = table.findAll('tr')
-                print("="*100)
+                table = comment.find_next('table')  # znajduje tabele zaraz po komentarzu: 'HTML-Block: Einzelteil-Informationen mit Grafiken, ohne Barcode '
+                rows = table.findAll('tr')          # przypisuje do zmiennej rows wszystkie znalezione <tr> w tabeli
+                print("="*180)
+                details_table_lenght = len(rows)
+                print(details_table_lenght)
+                i=1
+                while i < 3:
+                    dict1={}
+                    for i in range(1,16):
+                        row = rows[i]
+                        cell_0 = row.findChildren('td')[0].getText().strip()
+                        cell_1 = row.findChildren('td')[1].getText().strip()
+                        dict1[cell_0]=cell_1
+                        #print(cell_0,cell_1)
+                        i += 1
+                    #print (dict1['NUMER RYSUNKU:'])
+                    print (dict1)
 
+                    #print(rows[i].text.strip()) 
+                    # row = rows[i]                        # przypisanie do zmiennej row wiersz nr 7
+                    # cell = row.findChildren('td')
+                    # detail_number = cell[1].getText()    # druga komórka z dwóch w wierszu o numerze 7
+                    # print(detail_number) 
+                   
+
+                # dict1={}
+                # print (rows[6].getText().strip())
+                # dict1[]
+
+
+                #print(rows)                         # wypisuje wszystkie wiersze <tr> bez formatowania
                 #nr_czesci = rows[1].text.strip()
-                #wymiary = rows[6].text.strip()
+                #wymiary = rows[6].text.strip()`
                 #print(nr_czesci)
                 #print(wymiary)
-                #print(rows[3].text.strip())
+                #print(rows[3].text.strip())        # wypisuje cały wiersz z formatowaniem -> sam tekst z wiersza (obie komórki), pozycja o indexie 3 z tabeli 'rows'
                 #---------------------------------------
-                # odczyt całej jednej tabeli -> jeden detal
-                for i in range(1,21):
-                    row = rows[i]
-                    print(row.getText())
+                # for i in range(1,21):             # odczyt całej jednej tabeli -> jeden detal 
+                #     row = rows[i]                 # dla wierszy od 1 do 20
+                #     print(row.getText())
                 #---------------------------------------
                 # odczyt z jednej komórki
-                row = rows[1]
-                # print(row.getText())
-                cell = row.findChildren('td')
-                detail_number = cell[2].getText()
-                print(detail_number) 
+                # row = rows[7]                        # przypisanie do zmiennej row wiersz nr 7
+                # cell = row.findChildren('td')
+                # detail_number = cell[1].getText()    # druga komórka z dwóch w wierszu o numerze 7
+                # print(detail_number) 
+                #---------------------------------------`
+                # odczyt z jednej komórki
+                
+
+
+
+                # for i in range(1,len(rows)): 
+                    
+                #     print(rows[i].getText())
+
+                # for row in rows:
+                #     cells = row.findChildren('td')
+                #     for cell in cells:
+                #         print (cell.getText().strip())
+
+                # details_table_lenght = len(rows)
+
+                # while rows < details_table_lenght:
+                #     print(rows)
+                    # print(row.getText())
+                    
+                    #print(len(cell))
+                #     
                 #---------------------------------------
                 # for row in rows: 
                 #     cells = row.findChildren('td')
@@ -63,7 +111,7 @@ def offert(program_file):
                 #     for cell in cells:
                 #          print(cell.getText())
                         
-                print("="*100) 
+                print("="*180) 
                    
                 
             
