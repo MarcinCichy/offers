@@ -25,7 +25,7 @@ def offert(program_file):
             if comment == 'Maschinenzeit/Tafel':
                 table_rows = comment.find_next_sibling('tr')
                 b_time = table_rows.find('nobr')
-                print("Czas maszynowy:",b_time.text.strip())
+                print("Czas maszynowy programu:",b_time.text.strip())
 
             if comment == 'Anzahl Programmdurchlauefe':
                 table_rows = comment.find_next('tr')
@@ -47,6 +47,7 @@ def offert(program_file):
 
 
                 i=1
+                detail_list=[]
                 while i < details_table_lenght:
                     # print(i)
                     start_cell = rows[i].findChildren('td')[1].getText().strip()
@@ -55,16 +56,23 @@ def offert(program_file):
                         index_of_start_cell = rows.index(rows[i])
                         print('komórka startowa:',start_cell)
                         print('INDEX:',index_of_start_cell)
-                        dict1={}
+                        dict_name = 'detal_dict_'+str(index_of_start_cell)
+                        print(dict_name)
+                        dict_name={}
                         for j in range(index_of_start_cell,index_of_start_cell+15):
                             row = rows[j]
                             cell_0 = row.findChildren('td')[0].getText().strip()
                             cell_1 = row.findChildren('td')[1].getText().strip()
-                            dict1[cell_0]=cell_1
+                            dict_name[cell_0]=cell_1
+                        detail_list.append(dict_name)    
+                        #print (dict_name)   
                     i += 1
-                print (dict1)
+                #print (dict_name)
 
-
+                for k in range (0,len(detail_list)):
+                    print(detail_list[k])
+                    print("-"*130)
+                
 
                 #print(rows)                         # wypisuje wszystkie wiersze <tr> bez formatowania
                 #nr_czesci = rows[1].text.strip()
@@ -114,9 +122,11 @@ def offert(program_file):
                         
                 print("="*180) 
                    
-                
-            
+                            
 path_name = os.getcwd()+'\\programy\\'
 path = os.path.abspath(path_name)
-program_file = path+"\\ativm2310a10B.HTML"
+program_file = path+"\\ativm2310a10A.HTML"
 offert(program_file)
+
+
+

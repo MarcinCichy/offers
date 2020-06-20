@@ -1,1 +1,1 @@
-B
+print(dict_name)
