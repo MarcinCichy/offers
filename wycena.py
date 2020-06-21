@@ -37,7 +37,7 @@ def offert(program_file):
             if comment == 'HTML-Block: Einzelteil-Informationen mit Grafiken, ohne Barcode ':
                 table = comment.find_next('table')  # znajduje tabele zaraz po komentarzu: 'HTML-Block: Einzelteil-Informationen mit Grafiken, ohne Barcode '
                 rows = table.findAll('tr')          # przypisuje do zmiennej rows wszystkie znalezione <tr> w tabeli
-                print("="*180)
+                print("="*130)
                 details_table_lenght = len(rows)    # ustala długość całej tabeli z danymi poszczególnych detali
                 # print(details_table_lenght)
                 # start_cell = rows[1].findChildren('td')[1].getText().strip()
@@ -94,12 +94,12 @@ def offert(program_file):
                 # detail_number = cell[1].getText()    # druga komórka z dwóch w wierszu o numerze 7
                 # print(detail_number) 
                 #---------------------------------------`
-                print("="*180) 
+                print("="*130) 
                    
                             
 path_name = os.getcwd()+'\\programy\\'              # ustalenie ścieżki, do katalogu zawierającego przykładowe pliki z programem TruTops
 path = os.path.abspath(path_name)                   # ustalenie ścieżki absolutnej
-program_file = path+"\\ativm2310a10A.HTML"          # nazwa pliku z programem TruTops
+program_file = path+"\\ativm2310a10B.HTML"          # nazwa pliku z programem TruTops
 offert(program_file)                                # wywołanie funkcji offert
 
 
