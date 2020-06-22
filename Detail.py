@@ -11,3 +11,5 @@ class Detail:
         self.quantity = quantity
         self.price = 0
 
+    def get_name(self):
+        
