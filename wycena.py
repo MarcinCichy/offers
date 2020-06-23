@@ -1,7 +1,11 @@
 import os
+import ntpath
 import requests as r
 from bs4 import BeautifulSoup, Comment
 
+
+def get_detail_name(detail_name):
+    print(ntpath.basename(detail_name))
 
 def offert(program_file):
     with open(program_file, "r") as file:
