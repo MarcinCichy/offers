@@ -17,6 +17,6 @@ print(ntpath.basename(name))
 
 
 #grubość detalu
-mat = 'AlMg3-15'
+mat = 'AlMg3-150'
 thicknes = abs(int(mat[-3:])/10)
 print(thicknes,'mm')
