@@ -44,5 +44,4 @@ def get_program_data(program_file):
                 program_data.append(rows)
                 details_table_lenght = len(rows)    # ustala długość całej tabeli z danymi poszczególnych detali
                 program_data.append(details_table_lenght)
-    # return (program_data), rows, details_table_lenght
         return (program_data)
