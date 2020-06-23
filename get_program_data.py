@@ -28,7 +28,7 @@ def get_program_data(program_file):
                 table_rows = comment.find_next_sibling('tr')
                 b_program_time = table_rows.find('nobr')
                 # print("Czas maszynowy programu:",b_time.text.strip())
-                program_data.append(b_program_time.text.strip())
+                program_data.append(b_program_time.text.strip()[0:-9]) # usunięcie z napisu '[h:min:s]
 
             if comment == 'Anzahl Programmdurchlauefe':
                 table_rows = comment.find_next('tr')
