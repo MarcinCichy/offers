@@ -29,7 +29,7 @@ def get_element_data(program_file):
             index_of_start_cell = rows.index(rows[i])                   # to ustaw index tej komórki (w liście komórek tabeli)
                                                                         # print('komórka startowa:',start_cell)   # dla kontroli wyświetlenie zawartości komórki startowej, czy na[ewno jest "NUMER CZĘŚCI:"
                                                                         # print('INDEX:',index_of_start_cell)     # dla kontrli podanie indeksu tej komórki, dla każdej części z osobna
-            dict_name = 'detal_dict_'+str(index_of_start_cell)          # ustalenie jak mają sie nazywać poszczególne słowniki zawierające dane detalli
+            #dict_name = 'detal_dict_'+str(index_of_start_cell)          # ustalenie jak mają sie nazywać poszczególne słowniki zawierające dane detalli
                                                                         # print(dict_name)  # dla kontroli wyświetlenie nazwy słownika dla danego detalu
             dict_name={}                                                # pusty słownik, do którego wpisywane będą dane z komórek tabeli po przejściu kolejny iteracji poniższej pętli
             for j in range(index_of_start_cell,index_of_start_cell+15): # pętla zaczyna sie od indeksu komórki startowej dla danej części i kończy 15 komórek niżej
@@ -39,8 +39,11 @@ def get_element_data(program_file):
                 if cell_0 == 'NAZWA PLIKU GEO:':                        # jeżeli komórk (klucz łownika) ma wartość 'NAZWA PLIKU GEO:' ,to zastosuj
                     cell_1 = ntpath.basename(cell_1)                    # funkcję ntpath.basename() w celu wyofdrębnienia nazwy pliku ze ścieżki    
                 dict_name[cell_0]=cell_1                                # dodanie do słownika pary cell_0:cell_1 (klucz:wartość)
+            
+            
+            
             detail_list.append(dict_name)                               # po odczytanu wszytstkich wierszy(komórek) dla danego deatlu słownik wpisany zostaje do listy detali programu TruTops  
         i += 1                                                          # zwiększenie o 1 zmiennej iteracyjnej i dla pętli while
        # print(program_data)    
     return (detail_list)             
-# (ntpath.basename(name))               
+              
