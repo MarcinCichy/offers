@@ -2,7 +2,7 @@ from get_program_data import get_program_data
 import ntpath
 
 class Detail:
-    def __init__ (self, name, material, thicknes, dimmensions, cut_time, quantity, price = 0):
+    def __init__ (self, name, material, thicknes, dimmensions, cut_time, quantity, price = 0, isbending =0):
         self.name = name
         self.material = material
         self.thicknes = thicknes
@@ -10,7 +10,7 @@ class Detail:
         self.cut_time = cut_time
         self.quantity = quantity
         self.price = 0
-
+        self.isbending = 0
 
 def get_element_data(program_file):
     
@@ -44,6 +44,5 @@ def get_element_data(program_file):
             
             detail_list.append(dict_name)                               # po odczytanu wszytstkich wierszy(komórek) dla danego deatlu słownik wpisany zostaje do listy detali programu TruTops  
         i += 1                                                          # zwiększenie o 1 zmiennej iteracyjnej i dla pętli while
-       # print(program_data)    
     return (detail_list)             
               

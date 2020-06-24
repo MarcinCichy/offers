@@ -3,6 +3,23 @@ from get_element_data import get_element_data
 from counts import material_costs, cut_price, suma_per_detail
 import os
 
+class Detail:
+    def __init__ (self, name, material, thicknes, dimensionX, dimensionY, cut_time, quantity, price, isbending =0):
+        self.name = name
+        self.material = material
+        self.thicknes = thicknes
+        self.dimensionX = dimensionX
+        self.dimensionY = dimensionY 
+        self.cut_time = cut_time
+        self.quantity = quantity
+        self.price = price
+        self.isbending = 0
+
+    def show_data(self):
+        print(self.name,self.material,self.thicknes,self.dimensionX,self.dimensionY,self.cut_time,self.quantity,self.price,self.isbending)
+
+
+
 path_name = os.getcwd()+'\\programy\\'              # ustalenie ścieżki, do katalogu zawierającego przykładowe pliki z programem TruTops
 path = os.path.abspath(path_name)                   # ustalenie ścieżki absolutnej
 program_file = path+"\\ativm2310a10B.HTML"          # nazwa pliku z programem TruTopspritn
@@ -32,6 +49,8 @@ cut_hour_price = 420
 ## Pobiernie danych o detalu
 print('='*40)
 detail_table_lenght = len(get_element_data(program_file))
+#print(get_element_data(program_file)[0])
+detail_object_list=[]
 i=0
 while i < detail_table_lenght:
     #print(get_element_data(program_file))
@@ -57,7 +76,21 @@ while i < detail_table_lenght:
     print ('Za',quantity,'det.;',quant_details_cost, 'zł netto/szt.') 
     #print (get_element_data(program_file))
     print('-'*40)
+    detail = Detail(detail_name,material,thicknes,dimension_x,dimension_y,cut_time,quantity,costs_per_detail,0  )
+    detail_object_list.append(detail)
     i += 1
 print('='*40)
+print(detail_object_list)
+detail.show_data()
 
-
+class Detail:
+    def __init__ (self, name, material, thicknes, dimensionX, dimensionY, cut_time, quantity, price, isbending =0):
+        self.name = name
+        self.material = material
+        self.thicknes = thicknes
+        self.dimensionX = dimensionX
+        self.dimensionY = dimensionY 
+        self.cut_time = cut_time
+        self.quantity = quantity
+        self.price = price
+        self.isbending = 0
