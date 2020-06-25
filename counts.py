@@ -1,9 +1,13 @@
-def material_costs(i,dimensions,material_price,material_weight, thicknes, cut_time  ):
-    x_index = dimensions.index('x')
-    dimension_x = float(dimensions[0:x_index-1])
-    dimension_y = float(dimensions[x_index+2:-3])
-    dimX_brutto = float(dimension_x+10)/1000
-    dimY_brutto = float(dimension_y+10)/1000
+def material_costs(i,dimension_x,dimension_y,material_price,material_weight, thicknes, cut_time  ):
+    if thicknes <= 5:
+        dx = dy = 2*5
+    elif thicknes >5 and thicknes <=10:
+        dx = dy = 2*10
+    else:
+        dx = dy = 2*thicknes
+    
+    dimX_brutto = float(dimension_x+dx)/1000
+    dimY_brutto = float(dimension_y+dy)/1000
     detail_material_price = round(((dimX_brutto * dimY_brutto )*material_weight*thicknes*material_price),2)
     return detail_material_price
 

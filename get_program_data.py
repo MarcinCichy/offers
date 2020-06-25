@@ -22,7 +22,13 @@ def get_program_data(program_file):
                 table_rows = comment.find_next_sibling('tr')
                 b_mat = table_rows.find('b')
                #  print("Materiał:",b_mat.text.strip()[:9])
-                program_data.append(b_mat.text.strip()[:9])
+                #program_data.append(b_mat.text.strip()[:9])
+                material_string = b_mat.text.strip()[:9]
+                minus_index = (material_string.index('-'))
+                material = material_string[0:minus_index]
+                thicknes = abs(int(material_string[minus_index:])/10)
+                program_data.append(material)
+                program_data.append(thicknes)
 
             if comment == 'Maschinenzeit/Tafel':
                 table_rows = comment.find_next_sibling('tr')
